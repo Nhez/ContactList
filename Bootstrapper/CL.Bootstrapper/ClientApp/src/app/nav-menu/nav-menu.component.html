@@ -1,0 +1,39 @@
+<header>
+  <nav
+    class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"
+  >
+    <div class="container">
+
+      <a class="navbar-brand" [routerLink]="['/']">
+        Contacts List
+      </a>
+
+      <div *ngIf="!isLoggedIn">
+        <form class="example-form">
+
+          <mat-form-field class="example-form-field">
+            <mat-label>Email</mat-label>
+            <input matInput [(ngModel)]="email" name="email">
+          </mat-form-field>
+
+          <mat-form-field class="example-form-field">
+            <mat-label>Password</mat-label>
+            <input type="password" matInput [(ngModel)]="password" name="password">
+          </mat-form-field>
+
+          <button mat-flat-button color="primary" (click)="onLoginClicked()">
+            Login
+          </button>
+
+        </form>
+      </div>
+
+      <div *ngIf="isLoggedIn">
+        <button mat-flat-button color="primary" (click)="onLogoutClicked()">
+          Logout
+        </button>
+      </div>
+
+    </div>
+  </nav>
+</header>

@@ -1,0 +1,53 @@
+<form class="contact-form">
+
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]="Name" name="name">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Surname</mat-label>
+      <input matInput [(ngModel)]="Surname" name="surname">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput [(ngModel)]="Email" name="email">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Category</mat-label>
+      <mat-select [(ngModel)]="Category" name="category">
+        <mat-option *ngFor="let category of categories" [value]="category">{{category.value}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field *ngIf="!!Category && Category.subcategories.length > 0">
+      <mat-label>Subcategory</mat-label>
+      <mat-select [(ngModel)]="Subcategory" name="subcategory">
+        <mat-option *ngFor="let subcategory of Category.subcategories" [value]="subcategory">{{subcategory.value}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field *ngIf="!!Category && Category.parentCategoryId === 0">
+      <mat-label>Subcategory</mat-label>
+      <input matInput [(ngModel)]="OtherSubcategory" name="otherSubcategory">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Phone</mat-label>
+      <input matInput [(ngModel)]="Phone" name="phone">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Date Of Birth</mat-label>
+      <input matInput [matDatepicker]="picker" [(ngModel)]="DateOfBirth" name="dateOfBirth">
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <button mat-flat-button color="primary" (click)="onEditContactClicked()">
+      Edit Contact
+    </button>
+
+  </form>

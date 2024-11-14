@@ -1,0 +1,6 @@
+@CL.Bootstrapper_HostAddress = http://localhost:5021
+
+GET {{CL.Bootstrapper_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,20 @@
+<mat-card appearance="outlined" >
+    <mat-card-header>
+      <mat-card-title>{{ contactDetails.name }} {{ contactDetails.surname }}</mat-card-title>
+      <mat-card-subtitle>{{ contactDetails.category?.value }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+        <p>{{ contactDetails.subCategory?.value }}</p>
+        <p>{{ contactDetails.email }}</p>
+        <p>{{ contactDetails.phone }}</p>
+        <p>{{ contactDetails.dateOfBirth }}</p>
+      </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-fab aria-label="Delete contact" (click)="onBackClicked();$event.stopPropagation()">
+        <mat-icon>keyboard_backspace</mat-icon>
+      </button>
+
+    </mat-card-actions>
+  </mat-card>
